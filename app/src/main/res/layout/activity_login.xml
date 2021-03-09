@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/appLogo"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="120dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="120dp"/>
+            <EditText
+                android:id="@+id/edtUsername"
+                android:background="@drawable/border_edit_text"
+                android:layout_below="@+id/appLogo"
+                android:layout_marginTop="48dp"
+                android:hint="@string/userName"
+                android:layout_marginBottom="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/edtPassword"
+                android:hint="@string/password"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/border_edit_text"
+                android:layout_below="@id/edtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_below="@id/edtPassword"
+                android:textAllCaps="false"
+                android:paddingHorizontal="20dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/login"
+                android:onClick="onLoginButtonClicked"
+                android:background="@drawable/selector_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>
