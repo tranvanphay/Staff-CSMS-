@@ -3,4 +3,10 @@
     <string name="userName">Tên đăng nhập</string>
     <string name="password">Mật khẩu</string>
     <string name="login">Đăng nhập</string>
+    <string name="loginFailedMsg">Tài khoản hoặc mật khẩu không đúng. Vui lòng kiểm tra lại</string>
+    <string name="loginFailedTitle">Lỗi đăng nhập</string>
+    <string name="ok">Đồng ý</string>
+    <string name="cancel">Hủy bỏ</string>
+    <string name="loginFieldIsEmpty">Vui lòng nhập tài khoản và mật khẩu</string>
+    <string name="loginProcessing">Đang đăng nhập…</string>
 </resources>

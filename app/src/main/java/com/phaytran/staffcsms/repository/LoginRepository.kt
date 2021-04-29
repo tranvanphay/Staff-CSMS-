@@ -14,7 +14,7 @@ class LoginRepository(val application: Application) {
 
     fun doLogin(loginReq:LoginReq):LoginRes{
         Log.e("Phaydev:: ",loginReq.userName + loginReq.password)
-        var res = LoginRes(false,-1)
+        var res = LoginRes(true,-1)
         APIClient.client!!.create(UserAPI::class.java).login(loginReq).enqueue(object : Callback<LoginRes>{
             override fun onResponse(call: Call<LoginRes>, response: Response<LoginRes>) {
                 if(response.isSuccessful){

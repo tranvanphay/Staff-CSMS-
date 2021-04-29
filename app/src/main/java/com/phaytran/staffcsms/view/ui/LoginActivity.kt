@@ -1,5 +1,6 @@
 package com.phaytran.staffcsms.view.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.phaytran.staffcsms.R
 import com.phaytran.staffcsms.databinding.ActivityLoginBinding
 import com.phaytran.staffcsms.service.request.LoginReq
+import com.phaytran.staffcsms.util.MyDialog
 import com.phaytran.staffcsms.viewModel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -23,7 +25,21 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun onLoginButtonClicked(view: View) {
+        val loading = MyDialog.initLoadingDialog(this@LoginActivity,null,resources.getString(R.string.loginProcessing))
+        loading.show()
         Log.e("Phaydev:: ","Pressed login")
-        viewModel.login(LoginReq(binding.edtUsername.text.toString(),binding.edtPassword.text.toString()))
+        if(binding.edtUsername.text.isEmpty()||binding.edtPassword.text.isEmpty()){
+            MyDialog.showAlert(this@LoginActivity,resources.getString(R.string.loginFailedTitle),resources.getString(R.string.loginFieldIsEmpty),null,getString(R.string.ok)){}
+        }else{
+            val res = viewModel.login(LoginReq(binding.edtUsername.text.toString(),binding.edtPassword.text.toString()))
+            if(res.isSuccess){
+                loading.dismiss()
+                startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                finish()
+            }else{
+                MyDialog.showAlert(this@LoginActivity,resources.getString(R.string.loginFailedTitle),resources.getString(R.string.loginFailedMsg),null,resources.getString(R.string.ok)){}
+            }
+        }
+        loading.dismiss()
     }
 }
